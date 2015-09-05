@@ -99,14 +99,14 @@ for(a=0;a<4;a++){
 				if(region1 == false){
 					region1 = true;
 
-					timeLater3 = timeLater3 + x[value][2];
-					console.log("Program " + (a+1) + " runs in region 1 from " + time1 + " to " + timeLater3);
+					timeLater1 = timeLater1 + x[value][2];
+					console.log("Program " + (a+1) + " runs in region 1 from " + time1 + " to " + timeLater1);
 					time1 = time1 + timeLater1;
 				}
 				else{
-					timeLater4 = timeLater4 + x[value][2];
+					timeLater2 = timeLater2 + x[value][2];
 					
-					console.log("Program " + (a+1) + " runs in region 2 from " + time2 + " to " + timeLater4);
+					console.log("Program " + (a+1) + " runs in region 2 from " + time2 + " to " + timeLater2);
 					time2 = time2 + timeLater2;
 					region1 = false;
 				}
