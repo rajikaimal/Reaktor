@@ -37,8 +37,16 @@ for(a=0;a<4;a++){
 
 console.log("-------");
 var value;
+var time1 = 0;
+var time2 = 0;
+
 var time = 0;
 var timeGap;
+var timer = false;
+var timeLater1 = 0;
+var timeLater2 = 0;
+var timeLater3 = 0;
+var timeLater4 = 0;
 var region1 = false;
 var region2 = false;
 console.log(vals[0]);
@@ -46,30 +54,67 @@ console.log(vals[1]);
 console.log(vals[2]);
 console.log(vals[3]);
 for(a=0;a<4;a++){
-	value = vals[a];
+	//value = vals[a];
 	// if(x[value][1] > s1){
 	// 	console.log('Greater');
 	// }
 	//console.log(x[value]);
 	//console.log(x[value][1]);
-	if(x[value][1] <= s1 ){
-		if(region1 == false){
-			region1 = true;
-			console.log("Program " + (a+1) + " runs in region 1 from " + time + " to " + x[value][2]);
-		}
-		else{
-			console.log("Program " + (a+1) + " runs in region 2 from " + time + " to " + x[value][2]);
+	// if(x[a][1] <= s1){
+	// 	region1 = true;
+	// 	if(!timer){
+	// 		time = x[a][2];
+	// 		console.log("Program " + (a+1) + " runs in region 1 from " + time + " to " + x[a][2]);			
+	// 	}
+	// 	else{
+	// 		if(x[a][2];
+	// 		console.log("Program " + (a+1) + " runs in region 2 from " + time + " to " + x[a][2]);	
+	// 	}
+	// }
+	// if(x[a][1] > s1){
+	// 	region2 = true;
+	// 	console.log("Program " + (a+1) + " runs in region 2 from " + time + " to " + x[a][2]);
+	// }
+	for(o=0;o<m;o++){
+		value = vals[o];
+		if(a == vals[o]){
+			if(x[value][1] <= s1 ){
+				if(region1 == false){
+					region1 = true;
+					
+					timeLater1 = timeLater1 + x[value][2];
+					
+					console.log("Program " + (a+1) + " runs in region 1 from " + time1 + " to " + timeLater1);
+					time1 = time1 + timeLater1;
+				}
+				else{
+					timeLater2 = timeLater2 + x[value][2];
+					
+					console.log("Program " + (a+1) + " runs in region 2 from " + time2 + " to " + timeLater2);
+					time2 = time2 + timeLater2;
+					region1 = false;
+				}
+			}
+			if(x[value][1] > s1 ){
+				if(region1 == false){
+					region1 = true;
+
+					timeLater3 = timeLater3 + x[value][2];
+					console.log("Program " + (a+1) + " runs in region 1 from " + time1 + " to " + timeLater3);
+					time1 = time1 + timeLater1;
+				}
+				else{
+					timeLater4 = timeLater4 + x[value][2];
+					
+					console.log("Program " + (a+1) + " runs in region 2 from " + time2 + " to " + timeLater4);
+					time2 = time2 + timeLater2;
+					region1 = false;
+				}
+			}
+			
 		}
 	}
-	if(x[value][1] > s1 ){
-		if(region2 == false){
-			region2 = true;
-			console.log("Program " + (a+1) + " runs in region 1 from " + time + " to " + x[value][2]);
-		}
-		else{
-			console.log("Program " + (a+1) + " runs in region 2 from " + time + " to " + x[value][2]);
-		}
-	}
+	
 	//console.log(x[a]);
 }
 console.log("-------");
