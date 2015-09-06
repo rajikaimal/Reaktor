@@ -6,11 +6,11 @@ var x = [
 	[1,35,4],
 	[1,20,3],
 	[1,40,10],
-	[1,60,7],
+	[1,60,7]
 ];
 var vals = [];
 var temp;
-for(a=0;a<4;a++){
+for(a=0;a<m;a++){
 	h = x[a][0];
 	for(b=1;b<=(h*2);b++){
 		if(b%2 == 0 && b != 0){
@@ -33,13 +33,43 @@ for(a=0;a<4;a++){
 	}
 }
 
+
+
+var vals2 = [];
+var temp2;
+for(a=0;a<m;a++){
+	h = x[a][0];
+	for(b=1;b<=(h*2);b++){
+		if(b%2 != 0 && b != 0){
+			console.log(x[a][b]);	
+			if(a == 0){
+				vals2.push(a);
+			}
+			else{
+				if(x[a][b] < x[a-1][b]){
+					temp = vals2[a-1];
+					vals2[a-1] = a;
+					vals2[a] = temp;
+				}
+				else{
+					vals2.push(a);
+				}
+			}
+			//vals.push(x[a][b]);	
+		}
+	}
+}
+
+console.log("vals ! " + vals);
+console.log("vals 2 ! " + vals2);
+
 //console.log(vals);
 
 console.log("-------");
 var value;
 var time1 = 0;
 var time2 = 0;
-
+var turnAround = 0;
 var time = 0;
 var timeGap;
 var timer = false;
@@ -53,8 +83,9 @@ console.log(vals[0]);
 console.log(vals[1]);
 console.log(vals[2]);
 console.log(vals[3]);
-for(a=0;a<4;a++){
-	//value = vals[a];
+for(a=0;a<m;a++){
+	value = vals[a];
+	value1 = vals2[a];
 	// if(x[value][1] > s1){
 	// 	console.log('Greater');
 	// }
@@ -77,39 +108,42 @@ for(a=0;a<4;a++){
 	// }
 	for(o=0;o<m;o++){
 		value = vals[o];
+		value2 = vals2[o];
 		if(a == vals[o]){
-			if(x[value][1] <= s1 ){
+			if(x[value][1] <= s1){
+				//if(vals[a]vals[a++])
 				if(region1 == false){
 					region1 = true;
 					
 					timeLater1 = timeLater1 + x[value][2];
 					
 					console.log("Program " + (a+1) + " runs in region 1 from " + time1 + " to " + timeLater1);
-					time1 = time1 + timeLater1;
+					time1 = timeLater1;
+					turnAround = turnAround + timeLater1;
 				}
 				else{
 					timeLater2 = timeLater2 + x[value][2];
-					
+					turnAround = turnAround + timeLater2;
 					console.log("Program " + (a+1) + " runs in region 2 from " + time2 + " to " + timeLater2);
-					time2 = time2 + timeLater2;
+					time2 = timeLater2;
 					region1 = false;
 				}
 			}
 			if(x[value][1] > s1 ){
-				if(region1 == false){
-					region1 = true;
+				// if(region1 == false){
+				// 	region1 = true;
 
-					timeLater1 = timeLater1 + x[value][2];
-					console.log("Program " + (a+1) + " runs in region 1 from " + time1 + " to " + timeLater1);
-					time1 = time1 + timeLater1;
-				}
-				else{
+				// 	timeLater1 = timeLater1 + x[value][2];
+				// 	console.log("Program " + (a+1) + " runs in region 1 from " + time1 + " to " + timeLater1);
+				// 	time1 = time1 + timeLater1;
+				// }
+				// else{
 					timeLater2 = timeLater2 + x[value][2];
-					
+					turnAround = turnAround + timeLater2;
 					console.log("Program " + (a+1) + " runs in region 2 from " + time2 + " to " + timeLater2);
-					time2 = time2 + timeLater2;
+					time2 = timeLater2;
 					region1 = false;
-				}
+				//}
 			}
 			
 		}
@@ -118,6 +152,7 @@ for(a=0;a<4;a++){
 	//console.log(x[a]);
 }
 console.log("-------");
+console.log("Average turnaround time " + (turnAround/m));
 for(a=0;a<4;a++){
 //	value = vals[a];
 	// if(x[value][1] > s1){
@@ -166,3 +201,4 @@ function merge(left, right)
  
     return result;
 }
+
