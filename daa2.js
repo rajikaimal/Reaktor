@@ -31,11 +31,12 @@ var newX = x.slice();
 
 var totalTime = [];
 
-var exeTime = [0];
-
 var specTotal = [];
+
 var turnAround = 0;
+
 var prevTime = [];
+
 for(a=0;a<=m;a++){
 	for(b=0;b<=n;b++){
 		for(c=0;c<=m;c++){
