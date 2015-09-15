@@ -1,0 +1,24 @@
+{
+  "name": "reaktor",
+  "version": "0.9.0",
+  "description": "Partition algorithm simulator in Node",
+  "main": "reader.js",
+  "scripts": {
+    "test": "node reader.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xoRajika/Reaktor.git"
+  },
+  "keywords": [
+    "simulator",
+    "sync",
+    "async"
+  ],
+  "author": "Rajika Imal <inbox.rajika@gmail.com> (http://rajika.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xoRajika/Reaktor/issues"
+  },
+  "homepage": "https://github.com/xoRajika/Reaktor#readme"
+}
