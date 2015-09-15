@@ -1,24 +1,24 @@
 var n = 2;
-var m = 4;
-//var regions = [ 40, 60 ];
-var regions = [ 10, 20,30 ];
-// var x = [
-// 	[1,1,60,4],
-// 	[2,1,20,3],
-// 	[3,1,40,10],
-// 	[4,1,60,7]
-// ];
+var m = 3;
+var regions = [ 40, 60 ];
+//var regions = [ 10, 20,30 ];
+var x = [
+	[1,1,35,4],
+	[2,1,20,3],
+	[3,1,40,10],
+	[4,1,60,7]
+];
 
 var regionStatus = [];
 var tempRegions = regions.slice();
 
-var x = [
-	[1,1,12,30],
-	[2,1,20,25],
-	[3,1,25,19],
-	[4,1,19,41],
-	[5,1,10,18]
-];
+// var x = [
+// 	[1,1,12,30],
+// 	[2,1,20,25],
+// 	[3,1,25,19],
+// 	[4,1,19,41],
+// 	[5,1,10,18]
+// ];
 
 
 x = x.sort(function(a,b) {
@@ -50,10 +50,10 @@ for(a=0;a<=m;a++){
 					specTotal[regionNo] = prevTime[regionNo] + x[c][3];
 					totalTime = prevTime[regionNo] + x[c][3];
 					turnAround = turnAround + totalTime;
+					console.log('im hrer');
 				}
 				else{
-					
-					prevTime[regionNo] = specTotal[regionNo];
+					prevTime[regionNo] = totalTime;
 					totalTime = prevTime[regionNo] + x[c][3];
 					turnAround = turnAround + totalTime;
 				}
