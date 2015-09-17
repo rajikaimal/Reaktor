@@ -1,2 +1,0 @@
-# Reaktor
-Algorithm simulator

@@ -12,7 +12,7 @@ rl.question("Number of memory regions ? ", function(answer) {
 		var y = [];
 
 		//reads file with synchronous variation of readFile
-		var file  = fs.readFileSync('input.txt');
+		var file  = fs.readFileSync('input2.txt');
 
 		var array = file.toString().split(" ");
 		for(i in array) {
@@ -25,7 +25,7 @@ rl.question("Number of memory regions ? ", function(answer) {
 			}
 		}
 
-		var regionsFile  = fs.readFileSync('regions.txt');		
+		var regionsFile  = fs.readFileSync('regions2.txt');		
 		
 		var regions = [];
 		
@@ -34,7 +34,38 @@ rl.question("Number of memory regions ? ", function(answer) {
 		for(i in array) {
 		    regions.push(parseInt(array[i]));
 		}
+		var myLen = x.length;
 
+		var minArr = [];
+
+		var minData = 0;
+		for(a=0;a<myLen;a++){
+			myLen2 = x[a].length;
+			if(x[a][0] != 1){
+				for(b=0;b<myLen2;b++){
+					if((b%2) == 0 && (b!=0)){
+						minArr.push(x[a][b]);
+					}
+				}
+				
+				minnie = getMinOfArray(minArr);
+				for(c=0;c<myLen2;c++){
+					if(x[a][c] == minnie){
+						o = c-1;
+						minData = x[a][o];
+					}
+				}
+				x[a] = [];
+				x[a].push(1);
+				x[a].push(minData)
+				x[a].push(getMinOfArray(minArr));
+			}
+		}
+
+		function getMinOfArray(numArray) {
+		  return Math.min.apply(null, numArray);
+		}
+		
 		var len = x.length;
 		var v = [];
 		for(a=0;a<4;a++){
@@ -44,8 +75,6 @@ rl.question("Number of memory regions ? ", function(answer) {
 
 		var n = answer;
 		var m = (programs-1);
-
-		//var regions = [ 40, 60 ];
 
 		var regionStatus = [];
 		var tempRegions = regions.slice();
@@ -86,7 +115,6 @@ rl.question("Number of memory regions ? ", function(answer) {
 							totalTime[regionNo] = prevTime[regionNo] + x[c][2];
 			
 						}
-
 
 						console.log("Program " + x[c][3] + " runs in region " + regionNo + " from " + prevTime[regionNo] + " to " + totalTime[regionNo]);
 						turnAround = turnAround + totalTime[regionNo];			
