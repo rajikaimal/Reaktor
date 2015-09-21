@@ -12,7 +12,7 @@ rl.question("Number of memory regions ? ", function(answer) {
 		var y = [];
 
 		//reads file with synchronous variation of readFile
-		var file  = fs.readFileSync('input2.txt');
+		var file  = fs.readFileSync('input.txt');
 
 		var array = file.toString().split(" ");
 		for(i in array) {
@@ -25,7 +25,7 @@ rl.question("Number of memory regions ? ", function(answer) {
 			}
 		}
 
-		var regionsFile  = fs.readFileSync('regions2.txt');		
+		var regionsFile  = fs.readFileSync('regions.txt');		
 		
 		var regions = [];
 		
@@ -68,7 +68,7 @@ rl.question("Number of memory regions ? ", function(answer) {
 		
 		var len = x.length;
 		var v = [];
-		for(a=0;a<4;a++){
+		for(a=0;a<len;a++){
 			b = a+1;
 			x[a].push(b);
 		}
