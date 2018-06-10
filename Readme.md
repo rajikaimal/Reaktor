@@ -1,3 +1,6 @@
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/rajikaimal/Reaktor.svg)](https://greenkeeper.io/)
+
 <h2>Partition Algorithm Simulator</h2>
 
 ******** Instructions on how to run the program ********
